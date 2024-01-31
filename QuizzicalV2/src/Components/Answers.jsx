@@ -1,17 +1,15 @@
 function Answers(props) {
   return (
     <div>
-      <form>
-        <input
-          type="radio"
-          id="unique"
-          name="allSame"
-          value={props.answer}
-          checked={false}
-          onChange={(e) => props.handleChange(e)}
-        ></input>
-        <label htmlFor="1">{props.answer}</label>
-      </form>
+      <input
+        type="radio"
+        id={props.id}
+        name="option"
+        value={props.answer}
+        checked={props.selectedAnswer === props.answer}
+        onChange={(e) => props.handleChange(e)}
+      ></input>
+      <label htmlFor={props.id}>{props.answer}</label>
     </div>
   );
 }

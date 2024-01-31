@@ -26,13 +26,21 @@ function Questions(props) {
   }
 
   const answerEl = answers.map((answer, i) => {
-    return <Answers key={i} answer={answer} id={props.id} handleChange={handleAnswerChange} />;
+    return (
+      <Answers
+        key={i}
+        answer={answer}
+        id={`${props.id}-${i}`}
+        handleChange={handleAnswerChange}
+        selectedAnswer={selectedAnswer}
+      />
+    );
   });
 
   return (
     <div>
       <h1>{props.question}</h1>
-      {answerEl}
+      <form>{answerEl}</form>
     </div>
   );
 }
