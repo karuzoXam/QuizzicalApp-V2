@@ -22,8 +22,13 @@ function Questions(props) {
 
   function handleAnswerChange(e) {
     setSelectedAnswer(e.target.value);
-    console.log(e.target.value);
+    const targetId = e.target.id;
+    const id = targetId.substring(0, targetId.lastIndexOf('-'));
+    console.log(id);
+
+    const newAnswerObj = { answer: e.target.value, answerId: e.target.id };
   }
+  console.log(selectedAnswer);
 
   const answerEl = answers.map((answer, i) => {
     return (
