@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { decode } from 'html-entities';
-import { v4 as uuidv4 } from 'uuid';
 import Start from './Components/Start';
 import Questions from './Components/Questions';
 import fetchData from './fetchData';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [error, setError] = useState(null);
@@ -62,7 +62,6 @@ function App() {
       question={questionObj.question}
       correctAnswer={questionObj.correct_answer}
       incorrectAnswers={questionObj.incorrect_answers}
-      questionData={questionData}
     />
   ));
 

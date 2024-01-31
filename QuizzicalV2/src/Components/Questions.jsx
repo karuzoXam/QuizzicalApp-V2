@@ -1,28 +1,33 @@
 import Answers from './Answers';
-import { useEffct, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Questions(props) {
+  const [answers, setAnswers] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  function shuffleAnswers() {
-    const incorrectAnswers = props.incorrectAnswers;
-    const correctAnswer = props.correctAnswer;
+  useEffect(() => {
+    function shuffleAnswers() {
+      const incorrectAnswers = props.incorrectAnswers;
+      const correctAnswer = props.correctAnswer;
 
-    const rdmIndex = Math.floor(Math.random() * (incorrectAnswers.length + 1));
-    const answers = [...incorrectAnswers];
+      const rdmIndex = Math.floor(Math.random() * (incorrectAnswers.length + 1));
+      const answers = [...incorrectAnswers];
 
-    answers.splice(rdmIndex, 0, correctAnswer);
+      answers.splice(rdmIndex, 0, correctAnswer);
 
-    return answers;
+      return answers;
+    }
+    setAnswers(shuffleAnswers());
+  }, [props]);
+
+  function handleAnswerChange(e) {
+    setSelectedAnswer(e.target.value);
+    console.log(e.target.value);
   }
 
-  // function handleAnswerChange(e) {
-  //   setSelectedAnswer(e.target.value);
-  //   console.log(selectedAnswer);
-  // }
-
-  const answers = shuffleAnswers();
-  const answerEl = answers.map((answer, i) => <Answers key={i} answer={answer} />);
+  const answerEl = answers.map((answer, i) => {
+    return <Answers key={i} answer={answer} id={props.id} handleChange={handleAnswerChange} />;
+  });
 
   return (
     <div>

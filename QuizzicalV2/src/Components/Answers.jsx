@@ -6,9 +6,9 @@ function Answers(props) {
           type="radio"
           id="unique"
           name="allSame"
-          value="value"
+          value={props.answer}
           checked={false}
-          onChange={() => console.log(1)}
+          onChange={(e) => props.handleChange(e)}
         ></input>
         <label htmlFor="1">{props.answer}</label>
       </form>
