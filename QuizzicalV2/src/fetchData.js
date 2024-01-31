@@ -1,6 +1,6 @@
 async function fetchData() {
   try {
-    const res = await fetch('https://opentdb.com/api.php?amount=5');
+    const res = await fetch('https://opentdb.com/api.php?amount=5&type=multiple');
     if (!res.ok) {
       const errorMessage = `Failed to fetch! Error:(${res.status})`;
       if (res.status === 429) {
