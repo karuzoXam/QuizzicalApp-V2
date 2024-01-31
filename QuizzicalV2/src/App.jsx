@@ -9,6 +9,7 @@ function App() {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState('start');
 
   useEffect(() => {
     const fetchAndSetData = async () => {
@@ -41,10 +42,8 @@ function App() {
     return extractedData;
   }
 
-  console.log(extractRequiredData());
-
   function handleStartBtnClick() {
-    console.log(1);
+    setPage('question');
   }
 
   if (isLoading) {
@@ -55,10 +54,21 @@ function App() {
     return <div>Error: {error}</div>;
   }
 
+  const questionData = extractRequiredData();
+  const questionEl = questionData.map((questionObj) => (
+    <Questions
+      key={questionObj.id}
+      id={questionObj.id}
+      question={questionObj.question}
+      correctAnswer={questionObj.correct_answer}
+      incorrectAnswers={questionObj.incorrect_answers}
+    />
+  ));
+
   return (
     <div>
-      <Start handleStartClick={handleStartBtnClick} />
-      <Questions />
+      {page === 'start' && <Start handleStartClick={handleStartBtnClick} />}
+      {page === 'question' && questionEl}
     </div>
   );
 }
