@@ -1,4 +1,9 @@
+import Answers from './Answers';
+import { useEffct, useState } from 'react';
+
 function Questions(props) {
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+
   function shuffleAnswers() {
     const incorrectAnswers = props.incorrectAnswers;
     const correctAnswer = props.correctAnswer;
@@ -7,28 +12,22 @@ function Questions(props) {
     const answers = [...incorrectAnswers];
 
     answers.splice(rdmIndex, 0, correctAnswer);
+
     return answers;
   }
-  shuffleAnswers();
 
-  function createNewQuestionObj() {
-    const newQuestionObj = {
-      ...props,
-      shuffledAnswers: shuffleAnswers(),
-    };
-    console.log(newQuestionObj);
-    return newQuestionObj;
-  }
+  // function handleAnswerChange(e) {
+  //   setSelectedAnswer(e.target.value);
+  //   console.log(selectedAnswer);
+  // }
 
-  createNewQuestionObj();
+  const answers = shuffleAnswers();
+  const answerEl = answers.map((answer, i) => <Answers key={i} answer={answer} />);
 
   return (
     <div>
-      <h1>question</h1>
-      <form>
-        <input type="radio" id="1"></input>
-        <label htmlFor="1">Label</label>
-      </form>
+      <h1>{props.question}</h1>
+      {answerEl}
     </div>
   );
 }

@@ -62,6 +62,7 @@ function App() {
       question={questionObj.question}
       correctAnswer={questionObj.correct_answer}
       incorrectAnswers={questionObj.incorrect_answers}
+      questionData={questionData}
     />
   ));
 
