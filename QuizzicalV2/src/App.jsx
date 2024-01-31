@@ -23,6 +23,14 @@ function App() {
 
   console.log(data);
 
+  function extractRequiredData() {
+    data.results.forEach((dataObj) => {
+      const question = dataObj.question;
+      const correct_answer = dataObj.correct_answer;
+      const incorrect_answers = dataObj.incorrect_answers;
+    });
+  }
+
   function handleStartBtnClick() {
     console.log(1);
   }
