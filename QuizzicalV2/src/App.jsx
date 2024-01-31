@@ -8,6 +8,7 @@ import fetchData from './fetchData';
 function App() {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchAndSetData = async () => {
@@ -18,6 +19,7 @@ function App() {
         console.error(err.message);
         setError(err.message);
       }
+      setIsLoading(false);
     };
 
     fetchAndSetData();
@@ -43,6 +45,10 @@ function App() {
 
   function handleStartBtnClick() {
     console.log(1);
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
   if (error) {
