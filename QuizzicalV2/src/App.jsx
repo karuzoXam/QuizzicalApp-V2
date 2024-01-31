@@ -24,9 +24,12 @@ function App() {
 
   console.log(data);
 
+  function handleStartBtnClick() {
+    console.log(1);
+  }
   return (
     <div>
-      <Start />
+      <Start handleStartClick={handleStartBtnClick} />
       <Questions />
     </div>
   );

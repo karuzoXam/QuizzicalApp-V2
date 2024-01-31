@@ -1,9 +1,9 @@
-function Start() {
+function Start(props) {
   return (
     <div>
-      <h1>Quizzical</h1>
-      <p>Some description if needed</p>
-      <button className="start-btn" onClick={() => console.log(1)}>
+      <h1 className="start_header">Quizzical</h1>
+      <p className="start_description">Some description if needed</p>
+      <button className="start_btn" onClick={props.handleStartClick}>
         Start quiz
       </button>
     </div>

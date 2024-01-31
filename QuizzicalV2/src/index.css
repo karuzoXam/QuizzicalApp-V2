@@ -17,7 +17,21 @@ body {
   text-align: center;
 }
 
-.start-btn {
+.start_header,
+.start_description {
+  color: #293264;
+}
+
+.start_btn {
   font-family: 'JetBrains Mono', monospace, sans-serif;
   padding: 1em 2em;
+  color: #f5f7fb;
+  background-color: #293264;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.start_btn:active {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75) inset;
 }
