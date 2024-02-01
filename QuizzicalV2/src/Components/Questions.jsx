@@ -18,7 +18,7 @@ function Questions(props) {
       return answers;
     }
     setAnswers(shuffleAnswers());
-  }, [props]);
+  }, []);
 
   function handleAnswerChange(e) {
     setSelectedAnswer(e.target.value);
