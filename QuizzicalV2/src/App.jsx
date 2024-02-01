@@ -10,6 +10,8 @@ function App() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState('start');
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [shuffledData, setShuffledData] = useState([]);
 
   useEffect(() => {
     const fetchAndSetData = async () => {
@@ -26,26 +28,51 @@ function App() {
     fetchAndSetData();
   }, []);
 
-  // console.log(data);
+  useEffect(() => {
+    if (data && data.results) {
+      const questionData = extractRequiredData();
+      setShuffledData(questionData);
+    }
+  }, [data]);
 
   function extractRequiredData() {
-    if (!data) return;
+    if (!data?.results) return [];
 
     const extractedData = data.results.map((dataObj) => {
-      const question = decode(dataObj.question);
-      const correct_answer = decode(dataObj.correct_answer);
       const incorrect_answers = dataObj.incorrect_answers.map((answer) => decode(answer));
-      const id = uuidv4();
 
-      return { id, question, correct_answer, incorrect_answers };
+      return {
+        id: uuidv4(),
+        question: decode(dataObj.question),
+        correct_answer: decode(dataObj.correct_answer),
+        incorrect_answers: incorrect_answers,
+        answers: shuffleAnswers(dataObj),
+      };
     });
+
     return extractedData;
+  }
+
+  function shuffleAnswers(question) {
+    const incorrectAnswers = question.incorrect_answers;
+    const correctAnswer = question.correct_answer;
+
+    const shuffledAnswers = [...incorrectAnswers, correctAnswer].sort(() => Math.random() - 0.5);
+    return shuffledAnswers;
+  }
+
+  function handleAnswerChange(questionId, answer) {
+    setSelectedAnswers((prevSelectedAnswers) => ({
+      ...prevSelectedAnswers,
+      [questionId]: answer,
+    }));
   }
 
   function handleStartBtnClick() {
     setPage('question');
   }
 
+  console.log(selectedAnswers);
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -54,14 +81,12 @@ function App() {
     return <div>Error: {error}</div>;
   }
 
-  const questionData = extractRequiredData();
-  const questionEl = questionData.map((questionObj) => (
+  const questionEl = shuffledData.map((questionObj, i) => (
     <Questions
-      key={questionObj.id}
-      id={questionObj.id}
-      question={questionObj.question}
-      correctAnswer={questionObj.correct_answer}
-      incorrectAnswers={questionObj.incorrect_answers}
+      key={i}
+      question={questionObj}
+      selectedAnswer={selectedAnswers[questionObj.id]}
+      onAnswerChange={handleAnswerChange}
     />
   ));
 

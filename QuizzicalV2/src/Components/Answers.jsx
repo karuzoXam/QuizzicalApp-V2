@@ -1,17 +1,19 @@
-function Answers(props) {
+import React from 'react';
+
+function Answer({ id, answer, handleChange, selectedAnswer }) {
   return (
     <div>
       <input
         type="radio"
-        id={props.id}
+        id={id}
         name="option"
-        value={props.answer}
-        checked={props.selectedAnswer === props.answer}
-        onChange={(e) => props.handleChange(e)}
-      ></input>
-      <label htmlFor={props.id}>{props.answer}</label>
+        value={answer}
+        checked={selectedAnswer === answer}
+        onChange={(e) => handleChange(e)}
+      />
+      <label htmlFor={id}>{answer}</label>
     </div>
   );
 }
 
-export default Answers;
+export default Answer;
