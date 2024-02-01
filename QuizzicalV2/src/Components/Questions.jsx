@@ -1,8 +1,11 @@
-// Questions.js
 import React from 'react';
 import Answers from './Answers';
 
 function Questions({ question, selectedAnswer, onAnswerChange }) {
+  console.log('Decoded Question:', question.question);
+  console.log('Decoded Incorrect Answers:', question.incorrect_answers);
+  console.log('Decoded Correct Answer:', question.correct_answer);
+
   const handleAnswerChange = (answer) => {
     onAnswerChange(question.id, answer);
   };

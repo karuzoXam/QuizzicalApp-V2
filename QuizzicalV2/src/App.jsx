@@ -39,13 +39,14 @@ function App() {
     if (!data?.results) return [];
 
     const extractedData = data.results.map((dataObj) => {
-      const incorrect_answers = dataObj.incorrect_answers.map((answer) => decode(answer));
+      const incorrectAnswers = dataObj.incorrect_answers.map((answer) => decode(answer));
+      console.log(incorrectAnswers);
 
       return {
         id: uuidv4(),
         question: decode(dataObj.question),
         correct_answer: decode(dataObj.correct_answer),
-        incorrect_answers: incorrect_answers,
+        incorrect_answers: incorrectAnswers,
         answers: shuffleAnswers(dataObj),
       };
     });
@@ -73,6 +74,7 @@ function App() {
   }
 
   console.log(selectedAnswers);
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
