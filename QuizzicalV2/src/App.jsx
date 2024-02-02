@@ -13,6 +13,7 @@ function App() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [shuffledData, setShuffledData] = useState([]);
   const [checked, setChecked] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
 
   useEffect(() => {
     const fetchAndSetData = async () => {
@@ -74,13 +75,21 @@ function App() {
       console.log('Bitte beantworten Sie alle Fragen.');
       return;
     }
+
+    let correctCount = 0;
+    for (let key in selectedAnswers) {
+      const givenAnswer = selectedAnswers[key];
+      const questionObj = shuffledData.find((obj) => obj.id === key);
+
+      if (questionObj && questionObj.correct_answer === givenAnswer) {
+        correctCount++;
+      }
+    }
+    setCorrectCount(correctCount);
     setChecked(true);
   }
 
   function handleCheckAnswers() {
-    if (!selectedAnswers.length === 5) {
-      console.log();
-    }
     checkAnswers();
   }
 
