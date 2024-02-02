@@ -14,6 +14,7 @@ function App() {
   const [shuffledData, setShuffledData] = useState([]);
   const [checked, setChecked] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
+  const [playAgain, setPlayAgain] = useState(false);
 
   useEffect(() => {
     const fetchAndSetData = async () => {
@@ -28,7 +29,7 @@ function App() {
     };
 
     fetchAndSetData();
-  }, []);
+  }, [playAgain]);
 
   useEffect(() => {
     if (data && data.results) {
@@ -72,7 +73,8 @@ function App() {
 
   function checkAnswers() {
     if (Object.keys(selectedAnswers).length !== shuffledData.length) {
-      console.log('Bitte beantworten Sie alle Fragen.');
+      displayMessage();
+
       return;
     }
 
@@ -85,24 +87,41 @@ function App() {
         correctCount++;
       }
     }
+    console.log(`You answered ${correctCount}/${shuffledData.length} correct!`);
     setCorrectCount(correctCount);
     setChecked(true);
+  }
+  function handleStartBtnClick() {
+    setPage('question');
+  }
+
+  function handleButtonClick() {
+    if (checked) {
+      handlePlayAgain();
+    } else {
+      handleCheckAnswers();
+    }
   }
 
   function handleCheckAnswers() {
     checkAnswers();
   }
 
-  function handleStartBtnClick() {
-    setPage('question');
+  function displayMessage() {
+    return 'Please answer all Questions';
   }
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
+  function handlePlayAgain() {
+    console.log('play again');
+    // Reset all states
+    setError(null);
+    setData(null);
+    setIsLoading(true);
+    setSelectedAnswers({});
+    setShuffledData([]);
+    setChecked(false);
+    setCorrectCount(0);
+    setPlayAgain((prevPlayAgain) => !prevPlayAgain);
   }
 
   const questionEl = shuffledData.map((questionObj, i) => (
@@ -116,11 +135,30 @@ function App() {
     />
   ));
 
+  function renderQuestionPage() {
+    return (
+      <div>
+        {questionEl}
+        <p>
+          {checked
+            ? `You answered ${correctCount}/${shuffledData.length} correct!`
+            : displayMessage()}
+        </p>
+        <button onClick={handleButtonClick}>{checked ? 'Play again' : 'Check answers'}</button>
+      </div>
+    );
+  }
+
   return (
     <div>
-      {page === 'start' && <Start handleStartClick={handleStartBtnClick} />}
-      {page === 'question' && questionEl}
-      {page === 'question' && <button onClick={handleCheckAnswers}>Check answers</button>}
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Error: {error}</div>}
+      {!isLoading && !error && (
+        <div>
+          {page === 'start' && <Start handleStartClick={handleStartBtnClick} />}
+          {page === 'question' && renderQuestionPage()}
+        </div>
+      )}
     </div>
   );
 }
