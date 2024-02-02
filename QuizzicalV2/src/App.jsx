@@ -13,7 +13,6 @@ function App() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [shuffledData, setShuffledData] = useState([]);
   const [checked, setChecked] = useState(false);
-  const [correctAnswer, setCorrectAnswer] = useState('');
 
   useEffect(() => {
     const fetchAndSetData = async () => {
@@ -71,36 +70,17 @@ function App() {
   }
 
   function checkAnswers() {
-    if (Object.keys(selectedAnswers).length === 0) {
-      console.log('Es wurden keine Antworten ausgewählt.');
+    if (Object.keys(selectedAnswers).length !== shuffledData.length) {
+      console.log('Bitte beantworten Sie alle Fragen.');
       return;
     }
-
-    for (let key in selectedAnswers) {
-      const givenAnswer = selectedAnswers[key];
-      const questionObj = shuffledData.find((obj) => obj.id === key);
-
-      // console.log(givenAnswer);
-      // console.log(questionObj.incorrect_answers);
-
-      // if (questionObj.incorrect_answers.includes(givenAnswer))
-      //   console.log('falsche antwort', givenAnswer);
-
-      if (questionObj) {
-        if (questionObj.correct_answer === givenAnswer) {
-          console.log(`Die Antwort "${questionObj.question}" ist korrekt.`);
-        } else {
-          console.log(`Die Antwort ${givenAnswer} ist falsch.`);
-        }
-      } else {
-        console.log(`Keine Frage gefunden mit der ID ${key}`);
-      }
-    }
+    setChecked(true);
   }
 
-  // console.log(selectedAnswers);
-
   function handleCheckAnswers() {
+    if (!selectedAnswers.length === 5) {
+      console.log();
+    }
     checkAnswers();
   }
 
@@ -122,6 +102,8 @@ function App() {
       question={questionObj}
       selectedAnswer={selectedAnswers[questionObj.id]}
       onAnswerChange={handleAnswerChange}
+      checked={checked}
+      correctAnswer={questionObj.correct_answer}
     />
   ));
 

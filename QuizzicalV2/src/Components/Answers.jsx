@@ -1,6 +1,21 @@
 import React from 'react';
 
-function Answer({ id, answer, handleChange, selectedAnswer }) {
+function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnswer }) {
+  const isCorrect = answer === correctAnswer;
+
+  let color;
+  if (checked) {
+    if (isCorrect) {
+      color = 'green';
+    } else if (selectedAnswer === answer) {
+      color = 'red';
+    } else {
+      color = 'black';
+    }
+  } else {
+    color = 'black';
+  }
+
   return (
     <div>
       <input
@@ -11,7 +26,9 @@ function Answer({ id, answer, handleChange, selectedAnswer }) {
         checked={selectedAnswer === answer}
         onChange={(e) => handleChange(e)}
       />
-      <label htmlFor={id}>{answer}</label>
+      <label htmlFor={id} style={{ color: color }}>
+        {answer}
+      </label>
     </div>
   );
 }
