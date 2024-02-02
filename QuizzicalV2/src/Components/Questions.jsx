@@ -1,7 +1,14 @@
 import React from 'react';
 import Answers from './Answers';
 
-function Questions({ question, selectedAnswer, onAnswerChange, checked, correctAnswer }) {
+function Questions({
+  question,
+  selectedAnswer,
+  onAnswerChange,
+  checked,
+  correctAnswer,
+  isDisabled,
+}) {
   const handleAnswerChange = (answer) => {
     onAnswerChange(question.id, answer);
   };
@@ -15,6 +22,7 @@ function Questions({ question, selectedAnswer, onAnswerChange, checked, correctA
       selectedAnswer={selectedAnswer}
       checked={checked}
       correctAnswer={correctAnswer}
+      isDisabled={isDisabled}
     />
   ));
 

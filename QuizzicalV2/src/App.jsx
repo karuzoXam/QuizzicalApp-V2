@@ -15,6 +15,7 @@ function App() {
   const [checked, setChecked] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [playAgain, setPlayAgain] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     const fetchAndSetData = async () => {
@@ -104,6 +105,7 @@ function App() {
   }
 
   function handleCheckAnswers() {
+    setIsDisabled(true);
     checkAnswers();
   }
 
@@ -121,6 +123,7 @@ function App() {
     setShuffledData([]);
     setChecked(false);
     setCorrectCount(0);
+    setIsDisabled(false);
     setPlayAgain((prevPlayAgain) => !prevPlayAgain);
   }
 
@@ -132,6 +135,7 @@ function App() {
       onAnswerChange={handleAnswerChange}
       checked={checked}
       correctAnswer={questionObj.correct_answer}
+      isDisabled={isDisabled}
     />
   ));
 

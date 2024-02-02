@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnswer }) {
+function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnswer, isDisabled }) {
   const isCorrect = answer === correctAnswer;
 
   let color;
@@ -25,6 +25,7 @@ function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnsw
         value={answer}
         checked={selectedAnswer === answer}
         onChange={(e) => handleChange(e)}
+        disabled={isDisabled}
       />
       <label htmlFor={id} style={{ color: color }}>
         {answer}
