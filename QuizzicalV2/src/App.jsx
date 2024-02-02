@@ -127,9 +127,9 @@ function App() {
     setPlayAgain((prevPlayAgain) => !prevPlayAgain);
   }
 
-  const questionEl = shuffledData.map((questionObj, i) => (
+  const questionEl = shuffledData.map((questionObj) => (
     <Questions
-      key={i}
+      key={questionObj.id}
       question={questionObj}
       selectedAnswer={selectedAnswers[questionObj.id]}
       onAnswerChange={handleAnswerChange}

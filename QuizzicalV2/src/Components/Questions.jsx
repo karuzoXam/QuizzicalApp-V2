@@ -15,7 +15,7 @@ function Questions({
 
   const answerElements = question.answers.map((answer, i) => (
     <Answers
-      key={i}
+      key={`${question.id}-${i}`}
       id={`${question.id}-${i}`}
       answer={answer}
       handleChange={() => handleAnswerChange(answer)}
