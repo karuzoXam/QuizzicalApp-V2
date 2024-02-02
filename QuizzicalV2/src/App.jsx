@@ -12,6 +12,8 @@ function App() {
   const [page, setPage] = useState('start');
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [shuffledData, setShuffledData] = useState([]);
+  const [checked, setChecked] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState('');
 
   useEffect(() => {
     const fetchAndSetData = async () => {
@@ -40,7 +42,6 @@ function App() {
 
     const extractedData = data.results.map((dataObj) => {
       const incorrectAnswers = dataObj.incorrect_answers.map((answer) => decode(answer));
-      console.log(incorrectAnswers);
 
       return {
         id: uuidv4(),
@@ -69,11 +70,43 @@ function App() {
     }));
   }
 
+  function checkAnswers() {
+    if (Object.keys(selectedAnswers).length === 0) {
+      console.log('Es wurden keine Antworten ausgewählt.');
+      return;
+    }
+
+    for (let key in selectedAnswers) {
+      const givenAnswer = selectedAnswers[key];
+      const questionObj = shuffledData.find((obj) => obj.id === key);
+
+      // console.log(givenAnswer);
+      // console.log(questionObj.incorrect_answers);
+
+      // if (questionObj.incorrect_answers.includes(givenAnswer))
+      //   console.log('falsche antwort', givenAnswer);
+
+      if (questionObj) {
+        if (questionObj.correct_answer === givenAnswer) {
+          console.log(`Die Antwort "${questionObj.question}" ist korrekt.`);
+        } else {
+          console.log(`Die Antwort ${givenAnswer} ist falsch.`);
+        }
+      } else {
+        console.log(`Keine Frage gefunden mit der ID ${key}`);
+      }
+    }
+  }
+
+  // console.log(selectedAnswers);
+
+  function handleCheckAnswers() {
+    checkAnswers();
+  }
+
   function handleStartBtnClick() {
     setPage('question');
   }
-
-  console.log(selectedAnswers);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -96,6 +129,7 @@ function App() {
     <div>
       {page === 'start' && <Start handleStartClick={handleStartBtnClick} />}
       {page === 'question' && questionEl}
+      {page === 'question' && <button onClick={handleCheckAnswers}>Check answers</button>}
     </div>
   );
 }
