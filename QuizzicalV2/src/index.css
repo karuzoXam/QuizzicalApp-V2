@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 body,
 *::before,
@@ -18,7 +18,8 @@ body {
 }
 
 .start_header,
-.start_description {
+.start_description,
+.question_header {
   color: #293264;
 }
 
@@ -34,4 +35,37 @@ body {
 
 .start_btn:active {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75) inset;
+}
+
+.question_container {
+  border: 1px solid #293264;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.question_header {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.answer_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio {
+  display: none;
+}
+
+.label {
+  padding: 0.5em 1em;
+  margin-right: 1em;
+  cursor: pointer;
+  background-color: #293264;
+}
+
+.label:active {
+  opacity: 0.5;
 }

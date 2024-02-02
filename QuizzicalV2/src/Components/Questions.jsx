@@ -27,9 +27,9 @@ function Questions({
   ));
 
   return (
-    <div>
-      <h1>{question.question}</h1>
-      <form>{answerElements}</form>
+    <div className="question_container">
+      <h1 className="question_header">{question.question}</h1>
+      <form className="answer_form">{answerElements}</form>
     </div>
   );
 }

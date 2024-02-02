@@ -21,8 +21,9 @@ function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnsw
         checked={selectedAnswer === answer}
         onChange={(e) => handleChange(e)}
         disabled={isDisabled}
+        className="radio"
       />
-      <label htmlFor={id} style={{ color: color }}>
+      <label htmlFor={id} style={{ color: color }} className="label">
         {answer}
       </label>
     </div>
