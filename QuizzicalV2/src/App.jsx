@@ -88,7 +88,6 @@ function App() {
         correctCount++;
       }
     }
-    console.log(`You answered ${correctCount}/${shuffledData.length} correct!`);
     setCorrectCount(correctCount);
     setChecked(true);
     setIsDisabled(true);
@@ -114,7 +113,6 @@ function App() {
   }
 
   function handlePlayAgain() {
-    console.log('play again');
     // Reset all states
     setError(null);
     setData(null);
