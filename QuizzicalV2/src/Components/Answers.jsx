@@ -1,19 +1,14 @@
 import React from 'react';
 
 function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnswer, isDisabled }) {
-  const isCorrect = answer === correctAnswer;
+  let color = 'black';
 
-  let color;
   if (checked) {
-    if (isCorrect) {
+    if (answer === correctAnswer) {
       color = 'green';
     } else if (selectedAnswer === answer) {
       color = 'red';
-    } else {
-      color = 'black';
     }
-  } else {
-    color = 'black';
   }
 
   return (

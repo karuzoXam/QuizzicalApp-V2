@@ -91,6 +91,7 @@ function App() {
     console.log(`You answered ${correctCount}/${shuffledData.length} correct!`);
     setCorrectCount(correctCount);
     setChecked(true);
+    setIsDisabled(true);
   }
   function handleStartBtnClick() {
     setPage('question');
@@ -105,7 +106,6 @@ function App() {
   }
 
   function handleCheckAnswers() {
-    setIsDisabled(true);
     checkAnswers();
   }
 
