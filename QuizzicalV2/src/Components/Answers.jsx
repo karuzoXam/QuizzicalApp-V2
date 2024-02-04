@@ -1,13 +1,17 @@
 import React from 'react';
 
 function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnswer, isDisabled }) {
-  let color = 'black';
+  // const color = ' #293264';
+  // let backgroundColor = '#fff';
+  let className = 'label';
 
   if (checked) {
     if (answer === correctAnswer) {
-      color = 'green';
+      // backgroundColor = '#94D7A2';
+      className = 'correct';
     } else if (selectedAnswer === answer) {
-      color = 'red';
+      // backgroundColor = '#F8BCBC';
+      className = 'incorrect';
     }
   }
 
@@ -21,9 +25,8 @@ function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnsw
         checked={selectedAnswer === answer}
         onChange={(e) => handleChange(e)}
         disabled={isDisabled}
-        className="radio"
       />
-      <label htmlFor={id} style={{ color: color }} className="label">
+      <label className={className} htmlFor={id}>
         {answer}
       </label>
     </div>

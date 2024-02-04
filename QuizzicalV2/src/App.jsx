@@ -146,7 +146,9 @@ function App() {
             ? `You answered ${correctCount}/${shuffledData.length} correct!`
             : displayMessage()}
         </p>
-        <button onClick={handleButtonClick}>{checked ? 'Play again' : 'Check answers'}</button>
+        <button className="check_btn" onClick={handleButtonClick}>
+          {checked ? 'Play again' : 'Check answers'}
+        </button>
       </div>
     );
   }

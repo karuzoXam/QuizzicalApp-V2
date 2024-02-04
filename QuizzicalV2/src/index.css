@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;900&display=swap');
 
 body,
 *::before,
@@ -17,13 +17,14 @@ body {
   height: 100vh;
 
   background-image: url('./assets/blob_yellow.png'), url('./assets/blob_blue.png');
-  background-position: 100% 0, 0 100%;
+  background-position: 100% 0%, -5% 100%;
   background-repeat: no-repeat, no-repeat;
 }
 
 #root {
   max-width: 1280px;
   text-align: center;
+  padding: 1em 4em;
 }
 
 .start_header,
@@ -47,15 +48,19 @@ body {
 }
 
 .question_container {
-  border: 1px solid #293264;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 2px solid #dbdef0;
 }
 
 .question_header {
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5em;
 }
 
 .answer_form {
@@ -64,17 +69,56 @@ body {
   justify-content: center;
 }
 
-.radio {
+input[type='radio'] {
   display: none;
 }
 
-.label {
-  padding: 0.5em 1em;
+input[type='radio'] + label {
+  color: #293264;
+  font-weight: 500;
+  padding: 0.3em 2em;
   margin-right: 1em;
+  background-color: transparent;
+  border: 1px solid #4d5b9e;
+  border-radius: 10px;
   cursor: pointer;
-  background-color: #293264;
+  user-select: none;
+  transition: background 0.3s ease;
 }
 
-.label:active {
-  opacity: 0.5;
+input[type='radio']:checked + label {
+  background: #d6dbf5;
+  border: 1px solid transparent;
+}
+
+.label {
+  background: #4d5b9e;
+}
+
+.correct {
+  background: #94d7a2 !important;
+}
+
+.incorrect {
+  background: #f8bcbc !important;
+  opacity: 0.6;
+}
+
+p {
+  color: #293264;
+}
+
+.check_btn {
+  background-color: #4d5b9e;
+  color: #fff;
+  padding: 1em 1.5em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.check_btn:active {
+  background: #4d5b9ee6;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75) inset;
 }
