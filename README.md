@@ -32,7 +32,7 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 https://github.com/karuzoXam/React-Quizz-App/assets/60605508/485c7caf-ec9b-4978-b037-e918e4a8f281
 
 
-## Running the Project
+## :vertical_traffic_light: Running the Project
 To run the project in your local environment, follow these steps: 
 1. **Clone the Repository:**
    ```bash
