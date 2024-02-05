@@ -14,4 +14,4 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 - :heavy_check_mark: Two screens(start & questions)
 - :heavy_check_mark: Pull 5 questions from the [OTDB API](https://opentdb.com/)
 - :heavy_check_mark: Tally correct answers after "Check answers" is clicked
-- :eavy_check_mark: Styled & polished
+- :heavy_check_mark: Styled & polished
