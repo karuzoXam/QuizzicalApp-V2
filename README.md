@@ -17,4 +17,4 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 -  Styled & polished :heavy_check_mark:
 
 ## :no_entry: Bugs and Issues
- Sometimes the data is not displayed correctly decoded, but in the code itself, it is correctly decoded.
+ Sometimes the data is not displayed correctly decoded, but in the code itself, it is correctly decoded. I have tried to use a different decoding library, but unfortunately, this has not solved the problem.
