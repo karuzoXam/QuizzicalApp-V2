@@ -18,3 +18,10 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 
 ## :no_entry: Bugs and Issues
  Sometimes the data is not displayed correctly decoded, but in the code itself, it is correctly decoded. I have tried to use a different decoding library, but unfortunately, this has not solved the problem.
+
+## Running the Project
+To run the project in your local environment, follow these steps: 
+1. Clone the repository to your local machine.
+2. Run `npm install` or `yarn` in the project directory to install the required dependencies.
+3. Run `npm run start` or `yarn start` to get the project started.
+4. Open [localhost](http://localhost:5173/) (or the address shown in your console) in your web browser to view app.
