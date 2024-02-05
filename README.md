@@ -28,6 +28,10 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 ## :no_entry: Bugs and Issues
  Sometimes the data is not displayed correctly decoded, but in the code itself, it is correctly decoded. I have tried to use a different decoding library, but unfortunately, this has not solved the problem.
 
+## :movie_camera: Demo/Preview
+!https://github.com/karuzoXam/React-Quizz-App/assets/60605508/485c7caf-ec9b-4978-b037-e918e4a8f281
+
+
 ## Running the Project
 To run the project in your local environment, follow these steps: 
 1. **Clone the Repository:**
