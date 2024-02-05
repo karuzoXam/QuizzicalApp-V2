@@ -29,7 +29,7 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
  Sometimes the data is not displayed correctly decoded, but in the code itself, it is correctly decoded. I have tried to use a different decoding library, but unfortunately, this has not solved the problem.
 
 ## :movie_camera: Demo/Preview
-https://github.com/karuzoXam/React-Quizz-App/assets/60605508/485c7caf-ec9b-4978-b037-e918e4a8f281
+https://github.com/karuzoXam/React-Quizz-App/assets/60605508/f6b16284-bc4d-4d67-b934-3cd7c6e42250
 
 
 ## :vertical_traffic_light: Running the Project
