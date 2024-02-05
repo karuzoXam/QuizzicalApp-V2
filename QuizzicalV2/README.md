@@ -1,4 +1,4 @@
-# QuizzicalV2
+# QuizzicalV2 notes
 
 ### state
 ### useEffect
