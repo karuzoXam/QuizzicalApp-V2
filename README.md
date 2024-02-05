@@ -15,3 +15,6 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 -  Pull 5 questions from the [OTDB API](https://opentdb.com/) :heavy_check_mark:
 -  Tally correct answers after "Check answers" is clicked :heavy_check_mark:
 -  Styled & polished :heavy_check_mark:
+
+## :no_entry: Bugs and Issues
+ Sometimes the data is not displayed correctly decoded, but in the code itself, it is correctly decoded.
