@@ -16,7 +16,7 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 -  Tally correct answers after "Check answers" is clicked :heavy_check_mark:
 -  Styled & polished :heavy_check_mark:
 
-## Features 
+## :gear: Features 
  - **Loading Screen:**  Displays a loading screen during the fetch process to provide users with feedback on the ongoing process.
  - **Error Messages:** Displays error messages when errors occur during data loading to inform users of problems.
  - **User-friendly Interface:** Provides an intuitive and appealing user interface for displaying all questions and answers.
