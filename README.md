@@ -16,6 +16,15 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 -  Tally correct answers after "Check answers" is clicked :heavy_check_mark:
 -  Styled & polished :heavy_check_mark:
 
+## Features 
+ - **Loading Screen:**  Displays a loading screen during the fetch process to provide users with feedback on the ongoing process.
+ - **Error Messages:** Displays error messages when errors occur during data loading to inform users of problems.
+ - **User-friendly Interface:** Provides an intuitive and appealing user interface for displaying all questions and answers.
+ - **Evaluation of given answers:** Allows review and evaluation of the answers given by the user.
+Graphical presentation of results: Presents the results in a graphical form to show at a glance which questions were answered correctly or incorrectly.
+ - **Count for correct Answers:** Displays the number of questions answered correctly to give users feedback on their performance.
+ 
+
 ## :no_entry: Bugs and Issues
  Sometimes the data is not displayed correctly decoded, but in the code itself, it is correctly decoded. I have tried to use a different decoding library, but unfortunately, this has not solved the problem.
 
