@@ -21,7 +21,7 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
  - **Error Messages:** Displays error messages when errors occur during data loading to inform users of problems.
  - **User-friendly Interface:** Provides an intuitive and appealing user interface for displaying all questions and answers.
  - **Evaluation of given answers:** Allows review and evaluation of the answers given by the user.
-Graphical presentation of results: Presents the results in a graphical form to show at a glance which questions were answered correctly or incorrectly.
+- **Graphical presentation of Results:** Presents the results in a graphical form to show at a glance which questions were answered correctly or incorrectly.
  - **Count for correct Answers:** Displays the number of questions answered correctly to give users feedback on their performance.
  
 
