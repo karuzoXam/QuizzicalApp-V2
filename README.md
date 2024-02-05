@@ -11,7 +11,7 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 * `CSS`
 
 ## :dart: Requirements
-- Two screens(start & questions)
-- Pull 5 questions from the [OTDB API](https://opentdb.com/)
-- Tally correct answers after "Check answers" is clicked
-- Styled & polished
+[x] Two screens(start & questions)
+[x] Pull 5 questions from the [OTDB API](https://opentdb.com/)
+[x] Tally correct answers after "Check answers" is clicked
+[x] Styled & polished
