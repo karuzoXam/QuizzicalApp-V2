@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;900&display=swap');
 
 body,
 *::before,
@@ -17,13 +17,13 @@ body {
   height: 100vh;
 
   background-image: url('./assets/blob_yellow.png'), url('./assets/blob_blue.png');
-  background-position: 100% 0%, -5% 100%;
+  background-position: 100% 0, 0 100%;
   background-repeat: no-repeat, no-repeat;
+  overflow: auto;
 }
 
 #root {
   max-width: 1280px;
-  text-align: center;
   padding: 1em 4em;
 }
 
@@ -31,6 +31,10 @@ body {
 .start_description,
 .question_header {
   color: #293264;
+}
+
+.start_container {
+  text-align: center;
 }
 
 .start_btn {
@@ -47,12 +51,16 @@ body {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75) inset;
 }
 
+.content_container {
+  max-height: 90%;
+}
+
 .question_container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-bottom: 1.5em;
-  margin-bottom: 1.5em;
+  padding-bottom: 1.2em;
+  margin-bottom: 1em;
   border-bottom: 2px solid #dbdef0;
 }
 
@@ -60,13 +68,15 @@ body {
   font-weight: 900;
   font-size: 1rem;
   letter-spacing: 1px;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.2em;
+  text-align: left;
 }
 
 .answer_form {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em 0.5em;
 }
 
 input[type='radio'] {
@@ -76,8 +86,7 @@ input[type='radio'] {
 input[type='radio'] + label {
   color: #293264;
   font-weight: 500;
-  padding: 0.3em 2em;
-  margin-right: 1em;
+  padding: 0.3em 1em;
   background-color: transparent;
   border: 1px solid #4d5b9e;
   border-radius: 10px;
@@ -97,15 +106,25 @@ input[type='radio']:checked + label {
 
 .correct {
   background: #94d7a2 !important;
+  border: 1px solid transparent !important;
 }
 
 .incorrect {
   background: #f8bcbc !important;
   opacity: 0.6;
+  border: 1px solid transparent !important;
+}
+
+.disabled {
+  opacity: 0.6;
 }
 
 p {
   color: #293264;
+}
+
+.check_container {
+  text-align: center;
 }
 
 .check_btn {
@@ -121,4 +140,145 @@ p {
 .check_btn:active {
   background: #4d5b9ee6;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75) inset;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;900&display=swap');
+
+/* Reset Styles */
+body,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Body and Root Styles */
+body {
+  font-family: 'JetBrains Mono', monospace, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('./assets/blob_yellow.png'), url('./assets/blob_blue.png');
+  background-position: 100% 0, 0 100%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+#root {
+  max-width: 1280px;
+  padding: 1em 4em;
+}
+
+/* Text Styles */
+.start_header,
+.start_description,
+.question_header,
+p {
+  color: #293264;
+}
+
+/* Start Container Styles */
+.start_container,
+.check_container {
+  text-align: center;
+}
+
+/* Button Styles */
+.start_btn,
+.check_btn {
+  font-family: 'JetBrains Mono', monospace, sans-serif;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.start_btn {
+  color: #f5f7fb;
+  background-color: #293264;
+}
+
+.start_btn:active,
+.check_btn:active {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75) inset;
+}
+
+/* Content Container Styles */
+.content_container {
+  max-height: 90%;
+}
+
+/* Question Container Styles */
+.question_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 1.2em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #dbdef0;
+}
+
+.question_header {
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.2em;
+  text-align: left;
+}
+
+/* Answer Form Styles */
+.answer_form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em 0.5em;
+}
+
+/* Input Styles */
+input[type='radio'] {
+  display: none;
+}
+
+input[type='radio'] + label {
+  color: #293264;
+  font-weight: 500;
+  padding: 0.3em 1em;
+  background-color: transparent;
+  border: 1px solid #4d5b9e;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+input[type='radio']:checked + label {
+  background: #d6dbf5;
+  border: 1px solid transparent;
+}
+
+/* Label Styles */
+.label {
+  background: #4d5b9e;
+}
+
+.correct {
+  background: #94d7a2 !important;
+  border: 1px solid transparent !important;
+}
+
+.incorrect {
+  background: #f8bcbc !important;
+  opacity: 0.6;
+  border: 1px solid transparent !important;
+}
+
+.disabled {
+  opacity: 0.6;
+}
+
+.check_btn {
+  background-color: #4d5b9e;
+  color: #fff;
+  padding: 1em 1.5em;
 }

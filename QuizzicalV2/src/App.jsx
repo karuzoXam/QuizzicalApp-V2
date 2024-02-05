@@ -139,16 +139,18 @@ function App() {
 
   function renderQuestionPage() {
     return (
-      <div>
+      <div className="content_container">
         {questionEl}
-        <p>
-          {checked
-            ? `You answered ${correctCount}/${shuffledData.length} correct!`
-            : displayMessage()}
-        </p>
-        <button className="check_btn" onClick={handleButtonClick}>
-          {checked ? 'Play again' : 'Check answers'}
-        </button>
+        <div className="check_container">
+          <p>
+            {checked
+              ? `You answered ${correctCount}/${shuffledData.length} correct!`
+              : displayMessage()}
+          </p>
+          <button className="check_btn" onClick={handleButtonClick}>
+            {checked ? 'Play again' : 'Check answers'}
+          </button>
+        </div>
       </div>
     );
   }

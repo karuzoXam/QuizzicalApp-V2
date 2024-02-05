@@ -1,18 +1,18 @@
 import React from 'react';
 
 function Answer({ id, answer, handleChange, selectedAnswer, checked, correctAnswer, isDisabled }) {
-  // const color = ' #293264';
-  // let backgroundColor = '#fff';
   let className = 'label';
 
   if (checked) {
     if (answer === correctAnswer) {
-      // backgroundColor = '#94D7A2';
       className = 'correct';
     } else if (selectedAnswer === answer) {
-      // backgroundColor = '#F8BCBC';
       className = 'incorrect';
     }
+  }
+
+  if (isDisabled && answer !== correctAnswer) {
+    className += ' disabled';
   }
 
   return (
