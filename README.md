@@ -1,1 +1,1 @@
-# QuizzicalApp-V2
+# :game_die: QuizzApp
