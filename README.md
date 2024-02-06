@@ -3,11 +3,8 @@ A quiz app that is a solo project from the Scrimba Frontend Career Path. Which r
 
 ## :hammer_and_wrench: Main Technologies
 * `React`
-  * useState
-  * useEffect
 * `Vite`
 * `HTML`
-  * HTML Entities
 * `CSS`
 
 ## :dart: Requirements
